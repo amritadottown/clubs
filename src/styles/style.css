@@ -1,0 +1,198 @@
+:root {
+	font-family: system-ui, monospace;
+	color-scheme: light dark;
+	--base: #faf7f0;
+	--text: #000000d0;
+	--secondary: #00000025;
+	--secondary-light: #ffffff30;
+	--tertiary: #00000008;
+	--accent: #ae0c3e;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--base: #181818;
+		--text: #ffffffe0;
+		--secondary: #ffffff30;
+		--secondary-light: #7a7a7a;
+		--tertiary: #ffffff09;
+		--accent: #e0527a;
+	}
+}
+
+@media (color-gamut: p3) {
+	:root {
+		--accent: oklch(52.63% 0.187 13.42);
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--accent: oklch(66.45% 0.2344 6.44);
+		}
+	}
+}
+
+/* reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	background-clip: padding-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	background-color: var(--base);
+	color: var(--text);
+
+	line-height: 1.72;
+	margin: 2rem auto;
+	width: min(85%, 90ch);
+}
+
+/* inline */
+
+p {
+	margin-block-end: 1rem;
+}
+
+a {
+	color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	line-height: 1.25;
+	margin-block: 0.66em;
+}
+
+small {
+	font-size: 0.85rem;
+	line-height: 1rem;
+}
+
+h1 {
+	font-size: 2.4rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+h5 {
+	font-size: 1.35rem;
+}
+
+h6 {
+	font-size: 1.15rem;
+}
+
+kbd {
+	border: 1px solid var(--text);
+	border-radius: 0.2rem;
+	padding: 1px 4px;
+	font-family: monospace;
+}
+
+pre {
+	margin: 1rem 0;
+}
+
+:not(pre) > code {
+	background-color: var(--tertiary);
+	padding: 0.2rem 0.4rem;
+	border: 1px solid var(--secondary);
+	border-radius: 0.2rem;
+}
+
+.astro-code {
+	border: 1px solid var(--secondary);
+	border-radius: 0.2rem;
+	padding: 0.5rem 0.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	.astro-code,
+	.astro-code span {
+		color: var(--shiki-dark) !important;
+		background-color: var(--shiki-dark-bg) !important;
+		/* Optional, if you also want font styles */
+		font-style: var(--shiki-dark-font-style) !important;
+		font-weight: var(--shiki-dark-font-weight) !important;
+		text-decoration: var(--shiki-dark-text-decoration) !important;
+	}
+}
+
+/* block */
+
+ul,
+ol {
+	margin-inline-start: 1.5rem;
+
+	li {
+		margin-block: 0.8rem;
+	}
+}
+
+strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+
+	tr:nth-child(even) {
+		background-color: var(--tertiary);
+	}
+}
+
+td,
+th {
+	border: 1px solid var(--secondary);
+	padding: 0.5rem;
+	text-align: center;
+}
+
+blockquote {
+	margin-left: 0.5rem;
+	border-left: 2px solid var(--secondary);
+	font-style: italic;
+	padding-inline-start: 0.5rem;
+}
+
+hr {
+	border: 1px solid var(--secondary);
+}
+
+div.card,
+details {
+	background-color: var(--tertiary);
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	border-radius: 0.2rem;
+}
+
+details[open] > summary {
+	margin-bottom: 0.5rem;
+}

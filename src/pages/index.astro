@@ -1,5 +1,9 @@
 ---
+import '@/styles/style.css'
+import favicon from '@public/favicon.png?inline'; 
+import { getCollection } from 'astro:content';
 
+const clubs = await getCollection("clubs")
 ---
 
 <html lang="en">
@@ -9,9 +13,21 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>amrita.town clubs</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;" >
+			<img src={favicon} style="height: 4.2rem; image-rendering: pixelated; margin-left: -0.5rem" />
+			<h1>clubs</h1>
+		</div>
+		<p>a place to find every club, team, society or other congregation in Amrita Bengaluru</p>
+		{clubs.map(e => (
+			<div>
+				<p>{e.data.name}</p>
+				<p>{e.data.description}</p>
+				<p>{e.data.type[2].toString()}</p>
+			</div>
+		))
+		}
 	</body>
 </html>
