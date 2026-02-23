@@ -1,5 +1,6 @@
 ---
 import '@/styles/style.css'
+import '@/styles/geometry.css'
 import favicon from '@public/favicon.png?inline'; 
 import { getCollection } from 'astro:content';
 
@@ -20,14 +21,18 @@ const clubs = await getCollection("clubs")
 			<img src={favicon} style="height: 4.2rem; image-rendering: pixelated; margin-left: -0.5rem" />
 			<h1>clubs</h1>
 		</div>
-		<p>a place to find every club, team, society or other congregation in Amrita Bengaluru</p>
-		{clubs.map(e => (
-			<div>
-				<p>{e.data.name}</p>
-				<p>{e.data.description}</p>
-				<p>{e.data.type[2].toString()}</p>
-			</div>
-		))
-		}
+		<div class="clubs-grid">
+			{clubs.map(e => (
+				<div class="club-container">
+					<div class="club-info">
+						<p><b style={`color: ${e.data.accent_color || 'var(--text)'};`}>{e.data.name}</b></p>
+						<p>{e.data.description}</p>
+						<p>{e.data.type[2].join(', ')}</p>
+					</div>
+					<img src={"/icons/" + e.data.name.toLowerCase().replace(/\s+/g, '-') + ".png" || favicon} class="club-favicon" />
+				</div>
+			))
+			}
+		</div>
 	</body>
 </html>

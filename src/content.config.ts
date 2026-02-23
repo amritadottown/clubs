@@ -5,10 +5,14 @@ import { z } from 'astro/zod';
 const clubsSchema = z.object({
         name: z.string(),
         description: z.string(),
+        accent_color: z.string().optional(),
         links: z.object({
-            website: z.string().url(),
+            website: z.string().url().optional(),
             instagram: z.string().url(),
-            whatsapp: z.string().url()
+            X: z.string().url().optional(),
+            whatsapp: z.string().url().optional(),
+            LinkedIn: z.string().url().optional(),
+            Github: z.string().url().optional()
         }),
         type: z.tuple([
             z.enum(['club', 'team']),

@@ -1,0 +1,54 @@
+.clubs-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	/* margin-top: 2rem; why? */
+	justify-content: center;
+}
+
+.club-container {
+	width: 320px;
+	height: 100px;
+	padding: .75rem 1rem;
+    background-color: var(--tertiary); /* temporary */
+	padding: .75rem var(--x-padding, 1rem);
+	border-radius: .5rem;
+	color: var(--text);
+	text-decoration: none;
+	display: flex;
+	gap: .5rem;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid transparent;
+	overflow: hidden;
+}
+
+.club-container:hover {
+	background-color: var(--tertiary);
+	outline: 1px solid var(--secondary);
+}
+
+.club-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+	overflow: hidden;
+	flex: 1;
+}
+
+.club-info p {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.club-favicon {
+	height: 3.5rem;
+	width: 3.5rem;
+	object-fit: contain;
+	image-rendering: pixelated;
+	flex-shrink: 0;
+}
+
+

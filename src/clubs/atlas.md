@@ -4,7 +4,10 @@ description: The systems programming club of Amrita Bengaluru
 links:
     website: https://atlasdev.club
     instagram: https://instagram.com/atlas_aseb
-    whatsapp: https://atlasdev.club/
+    whatsapp: https://atlasdev.club/whatsapp
+    X: https://x.com/atlas_aseb
+    github: https://github.com/atlas-aseb
+accent_color: "oklch(71.73% .2333 42.82)"
 type:
     - club
     - tech
