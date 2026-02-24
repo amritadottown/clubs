@@ -17,13 +17,19 @@ const clubsSchema = z.object({
             })
             .default({}),
         type: z.tuple([
-            z.enum(['club', 'team']),
-            z.enum(['tech', 'cultural']),
+            z.union([
+                z.enum(['club', 'team']).transform(v => [v]),
+                z.array(z.enum(['club', 'team'])).nonempty('Organization type (club/team) is required')
+            ]).describe('Organization type: club, team, or both'),
+            z.union([
+                z.enum(['tech', 'cultural']).transform(v => [v]),
+                z.array(z.enum(['tech', 'cultural'])).nonempty('Category (tech/cultural) is required')
+            ]).describe('Category: tech, cultural, or both'),
             z.union([
                 z.enum(['cse', 'ece', 'eee', 'mech']).transform(v => [v]),
-                z.array(z.enum(['cse', 'ece', 'eee', 'mech']))
-            ])
-        ])
+                z.array(z.enum(['cse', 'ece', 'eee', 'mech'])).nonempty('At least one department is required')
+            ]).describe('Relevant departments')
+        ]).describe('Type information: [organization type, category, departments] - ALL REQUIRED')
     })
 
 const clubs = defineCollection({

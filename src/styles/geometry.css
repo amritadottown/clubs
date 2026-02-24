@@ -69,5 +69,31 @@
 	top: 0;
 }
 
+.filter-group {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
 
+.filter-btn {
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	background: var(--base);
+	color: var(--text);
+	cursor: pointer;
+	border-radius: 0.5rem;
+	transition: all 0.2s;
+	font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+	background: var(--secondary);
+}
+
+.filter-btn.active {
+	background: var(--accent);
+	color: var(--base);
+	border-color: var(--accent);
+	font-weight: 600;
+}
 

@@ -3,7 +3,7 @@ name: VALORA
 description: The fashion club
 links: {}
 type:
-    - club
+    - ['team', 'club']
     - cultural
     - - cse
       - ece

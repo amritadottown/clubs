@@ -24,10 +24,31 @@ const clubsSorted = [...clubs].sort((a, b) =>
 			<img src={favicon} style="height: 4.2rem; image-rendering: pixelated; margin-left: -0.5rem" />
 			<h1>clubs</h1>
 		</div>
-		<p>brought to you by the folks at <a href="https://amrita.town">amrita.town</a>. This is an unofficial registry of clubs, teams, and communities at Amrita Vishwa Vidyapeetham, Bengaluru.</p>
-		<div class="clubs-grid">
+		<p>brought to you by the folks at <a href="https://amrita.town">amrita.town</a>. This is an unofficial registry of clubs, teams, and communities at Amrita Vishwa Vidyapeetham, Bengaluru. Club information is maintained by the respective organization leads. To update your club's details, please <a href="https://amrita.town/contact">reach out</a> to the amrita.town team.</p>
+		
+		<div class="filters" style="margin-bottom: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+			<div class="filter-group">
+				<label style="font-weight: bold; margin-right: 0.5rem;">Type:</label>
+				<button class="filter-btn active" data-filter-type="organization" data-value="all">All</button>
+				<button class="filter-btn" data-filter-type="organization" data-value="club">Clubs</button>
+				<button class="filter-btn" data-filter-type="organization" data-value="team">Teams</button>
+			</div>
+			<div class="filter-group">
+				<label style="font-weight: bold; margin-right: 0.5rem;">Category:</label>
+				<button class="filter-btn active" data-filter-type="category" data-value="all">All</button>
+				<button class="filter-btn" data-filter-type="category" data-value="tech">Technical</button>
+				<button class="filter-btn" data-filter-type="category" data-value="cultural">Cultural</button>
+			</div>
+		</div>
+		
+		<div class="clubs-grid" id="clubs-grid">
 			{clubsSorted.map(e => (
-				<a href={`/${e.id}`} class="club-container">
+				<a 
+					href={`/${e.id}`} 
+					class="club-container"
+					data-org-type={e.data.type[0].join(',')}
+					data-category={e.data.type[1].join(',')}
+				>
 					<div class="club-info">
 						<p><b style={`color: ${e.data.accent_color || 'var(--text)'};`}>{e.data.name}</b></p>
 						<small>{e.data.description}</small>
@@ -42,5 +63,53 @@ const clubsSorted = [...clubs].sort((a, b) =>
 			))
 			}
 		</div>
+		
+		<script>
+			const filterButtons = document.querySelectorAll('.filter-btn');
+			const clubContainers = document.querySelectorAll<HTMLElement>('.club-container');
+			
+			let selectedOrg = 'all';
+			let selectedCategory = 'all';
+			
+			function filterClubs() {
+				clubContainers.forEach(container => {
+					const orgTypes = (container.getAttribute('data-org-type') || '').split(',');
+					const categories = (container.getAttribute('data-category') || '').split(',');
+					
+					const matchesOrg = selectedOrg === 'all' || orgTypes.includes(selectedOrg);
+					const matchesCategory = selectedCategory === 'all' || categories.includes(selectedCategory);
+					
+					if (matchesOrg && matchesCategory) {
+						container.style.display = '';
+					} else {
+						container.style.display = 'none';
+					}
+				});
+			}
+			
+			filterButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					const filterType = button.getAttribute('data-filter-type');
+					const value = button.getAttribute('data-value');
+					
+					if (!filterType || !value) return;
+					
+					// Update active state for buttons in the same group
+					document.querySelectorAll(`[data-filter-type="${filterType}"]`).forEach(btn => {
+						btn.classList.remove('active');
+					});
+					button.classList.add('active');
+					
+					// Update selected filter
+					if (filterType === 'organization') {
+						selectedOrg = value;
+					} else if (filterType === 'category') {
+						selectedCategory = value;
+					}
+					
+					filterClubs();
+				});
+			});
+		</script>
 	</body>
 </html>
