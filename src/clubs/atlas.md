@@ -16,9 +16,10 @@ classification:
   category:
   - STEM
 ---
+
 We're ATLAS, the systems programming club of Amrita Vishwa Vidyapeetham, Bengaluru.
 
-We're about the software that other programmers rely on to do their work, touching the low-level internals of everything that few need to explore. We forge the very anvils upon which others fabricate their digital creations. 
+We're focused on the software that other programmers rely on to do their work, touching the low-level internals of everything that few need to explore. We forge the very anvils upon which others fabricate their digital creations. 
 
 Above all, we care about programming as a craft - that it's an art form that has value in and of itself, not just for getting stuff done by any means necessary.
 
