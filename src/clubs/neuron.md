@@ -8,7 +8,6 @@ links:
   Whatsapp: https://chat.whatsapp.com/IMfjC8ex9ev3NW7moaDR4c
   Instagram: https://www.instagram.com/ai_neuron/
   LinkedIn: https://www.linkedin.com/company/neuron-aseb-ai/
- 
 classification:
   organization:
   - Club
