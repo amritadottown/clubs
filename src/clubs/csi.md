@@ -1,6 +1,6 @@
 ---
 name: Computer Society of India
-description: a tech and innovation club
+description: A Tech and Innovation Club
 accent_color_light: oklch(65% 0.24 270)
 accent_color_dark: oklch(65% 0.24 270)
 links:
