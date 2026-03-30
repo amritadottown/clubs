@@ -4,12 +4,10 @@ description: The most interactive competitive programming club
 accent_color_light: oklch(26.37% 0.0682 48)
 accent_color_dark: oklch(88% 0.06 83)
 links:
-  Website: https://codechef.com
   Instagram: https://instagram.com/codechef_aseb
   Whatsapp: https://chat.whatsapp.com/JVvYdQkdFyp6oFvphgJfil
   LinkedIn: https://www.linkedin.com/company/codechef-aseb/
   Github: https://github.com/codechef-aseb
-  X: https://x.com/codechef_aseb
 classification:
   organization:
   - Club
