@@ -1,8 +1,8 @@
 ---
 name: IEEE WIE
 description: The Women In Engineering affinity group
-accent_color_light: oklch(51.82% 0.171 256.8)
-accent_color_dark: oklch(51.82% 0.171 256.8)
+accent_color_light: oklch(58% 0.09 220)
+accent_color_dark: oklch(58% 0.09 220)
 links:
   Website: https://www.amrita.edu/school/artificial-intelligence/bengaluru/professional-clubs/ieee-wie/
   Instagram: https://www.instagram.com/ieee_wie.aseb/
