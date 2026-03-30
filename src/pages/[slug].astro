@@ -13,9 +13,20 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { theme_color_light, theme_color_dark, links, location, name } = entry.data;
-const linkEntries = Object.entries(links).filter(
-	(entry): entry is [string, string] => typeof entry[1] === 'string' && entry[1].length > 0
-);
+
+function linkDisplay(label: string, url: string) {
+	const displayMap: Record<string, (_: string) => string> = {
+		Website: (url) => new URL(url).hostname,
+		Instagram: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
+		X: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
+		LinkedIn: (url) => `${new URL(url).pathname.split('/').filter(Boolean)[1]}`,
+		GitHub: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
+		WhatsApp: () => 'Join',
+		Discord: () => 'Join',
+		Telegram: () => 'Join',
+	};
+	return displayMap[label]?.(url) ?? "Link";
+}
 ---
 
 <Layout title={name}>
@@ -23,15 +34,27 @@ const linkEntries = Object.entries(links).filter(
 		<a href="/" class="back-button">← All Clubs</a>
 		<article>
 			<header>
-				<h1 style="margin: 0%;">{name}</h1>
+				<h1 style="margin: 0; margin-bottom: 2rem;">{name}</h1>
+				{Object.values(links).some(e => e) && 
 				<div class="links">
-					{linkEntries.map(([label, url]) => (
-						<a href={url} target="_blank">{label}</a>
+					{(Object.entries(links) as [[string, string]]).map(([label, url]) => (
+						<div>
+							<p class="label"><small>{label}</small></p>
+							{/* display: block is needed otherwise there's a weird layout shift after first load */}
+							<a style="display: block" href={url} target="_blank">{linkDisplay(label, url)}</a>
+						</div>
 					))}
-				</div>
-				{location && <p class="location">{location}</p>}
+				</div>}
+				{location && (
+					<div style="margin-bottom: 2rem;">
+						<p class="label"><small>Location</small></p>
+						<p class="location">{location}</p>
+					</div>	
+				)}
 			</header>
-			<hr />
+
+			</div>
+			<hr style="margin-bottom: 2rem;"/>
 			<div class="content">
 				<Content />
 			</div>
@@ -42,10 +65,10 @@ const linkEntries = Object.entries(links).filter(
 <style>
 	.club-page {
 		--accent: light-dark(var(--accent-light), var(--accent-dark));
-		max-width: 70ch;
+		max-width: 80ch;
 		margin: 2rem auto;
 		padding: 2rem;
-		border: 1px solid var(--accent);
+		/* border: 1px solid var(--accent); */
 		border-radius: 0.5rem;
 		position: relative;
 	}
@@ -71,23 +94,20 @@ const linkEntries = Object.entries(links).filter(
 		opacity: 0.9;
 	}
 	.links {
-		display: flex;
-		gap: 1rem;
-		flex-wrap: wrap;
+		width: 100%;
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr));
+		gap: 1rem 3rem;
+		margin-bottom: 2rem;
 	}
-	.links a {
-		font-size: 0.9rem;
-		text-decoration: none;
-		color: var(--text);
-		/* border-bottom: 1px solid var(--secondary); */
+	.label {
+		margin: 0;
+		line-height: 1;
+		color: var(--secondary-light);
 	}
 	.links a:hover {
 		border-bottom-color: var(--accent);
 	}
-	hr {
-		border: 0;
-		/* border-top: 1px solid var(--secondary); */
-		/* margin: 2rem 0; */
-		opacity: 0.2;
-	}
+
 </style>

@@ -48,9 +48,9 @@ const categoryCounts = Object.fromEntries(
 		</div>
 		<p>brought to you by the folks at <a href="https://amrita.town">amrita.town</a>. This is an unofficial students maintained registry of clubs, teams, and communities at Amrita Vishwa Vidyapeetham, Bengaluru</p>
 		
-		<div style="margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 3rem">
+		<div style="margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 3rem; width: 100%">
 			<div>
-				<p style="margin-bottom: 0.5rem;">Type</p>
+				<p style="margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Type</small></p>
 				<div class="filter-group" role="group" aria-label="Filter by organization type">
 					<button class="filter-btn active" data-filter-type="organization" data-value="all">All</button>
 					<button class="filter-btn" data-filter-type="organization" data-value="club">Clubs</button>
@@ -58,7 +58,7 @@ const categoryCounts = Object.fromEntries(
 				</div>
 			</div>
 			<div>
-				<p style="margin-bottom: 0.5rem;">Category</p>
+				<p style="margin-bottom: 0.5rem; color: var(--secondary-light"><small>Category</small></p>
 				<div class="filter-group" role="group" aria-label="Filter by category">
 					<button class="filter-btn active" data-filter-type="category" data-value="all">All</button>
 					<button class="filter-btn" data-filter-type="category" data-value="stem">STEM</button>
@@ -83,9 +83,9 @@ const categoryCounts = Object.fromEntries(
 				>
 					<div class="club-info">
 						<p>
-							<b style={`--accent-light: ${theme_color_light || 'var(--text)'}; --accent-dark: ${theme_color_dark || theme_color_light || 'var(--text)'}; color: light-dark(var(--accent-light), var(--accent-dark));`}>
+							<strong style={`--accent-light: ${theme_color_light || 'var(--text)'}; --accent-dark: ${theme_color_dark || theme_color_light || 'var(--text)'}; color: light-dark(var(--accent-light), var(--accent-dark));`}>
 								{e.data.name}
-							</b>
+							</strong>
 						</p>
 						<small>{e.data.description}</small>
 					</div>

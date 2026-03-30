@@ -106,10 +106,6 @@ h6 {
 	font-size: 1.15rem;
 }
 
-b {
-	font-weight: 600;
-}
-
 kbd {
 	border: 1px solid var(--text);
 	border-radius: 0.2rem;
@@ -163,7 +159,6 @@ ol {
 }
 
 strong {
-	color: var(--accent);
 	font-weight: 600;
 }
 
