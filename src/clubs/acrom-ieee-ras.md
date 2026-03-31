@@ -1,5 +1,5 @@
 ---
-name: ACROM & IEEE RAS
+name: ACROM IEEE RAS
 description: The Robotics and Mechatronics club
 accent_color_light: oklch(51.07% 0.2407 25)
 accent_color_dark: oklch(81.18% 0.145 226.16)
@@ -8,6 +8,8 @@ links:
   Instagram: https://www.instagram.com/ieee_acrom_ras/
   Whatsapp: https://chat.whatsapp.com/IobjgFAGccpDuVRCMEKFOZ
   LinkedIn: https://www.linkedin.com/company/ieee-acrom-ras
+  Github: 
+  X: 
 classification:
   organization:
   - Club
