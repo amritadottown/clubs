@@ -2,7 +2,7 @@
 name: Chethana
 description: The sports club
 links: 
-  Instagram: https://www.instagram.com/chethana_aseb?igsh=MWxlbTZ1dW1lZm5jcQ==
+  Instagram: https://www.instagram.com/chethana_aseb
   Whatsapp: https://chat.whatsapp.com/Hmi1xeqYqrLGG3SZkYzxWK
   LinkedIn: https://www.linkedin.com/in/chethana-sports-club-avv-bengaluru-7694042b4
 classification:

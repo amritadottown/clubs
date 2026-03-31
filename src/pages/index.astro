@@ -2,19 +2,10 @@
 import '@/styles/style.css'
 import '@/styles/geometry.css'
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
-import favicon from '@/assets/favicon.png';
+import { getIcon, favicon } from '@/lib/icons'
 
 const clubs = await getCollection("clubs");
-
-const iconModules = import.meta.glob<{ default: ImageMetadata }>('/src/assets/icons/*.{png,svg,jpg,jpeg}', { eager: true });
-const iconMap = Object.fromEntries(
-	Object.entries(iconModules).map(([filePath, module]) => {
-		const key = filePath.split('/').at(-1)?.replace(/\.(png|svg|jpg|jpeg)$/, '') ?? '';
-		return [key, module.default];
-	})
-);
 
 const clubsSorted = [...clubs].sort((a, b) =>
 	a.data.name.localeCompare(b.data.name, undefined, { sensitivity: 'base' })
@@ -72,7 +63,7 @@ const categoryCounts = Object.fromEntries(
 		<div class="clubs-grid" id="clubs-grid">
 			{clubsSorted.map(e => (
 				(() => {
-					const icon = iconMap[e.id] ?? favicon;
+					const icon = getIcon(e.id);
 					const {theme_color_light, theme_color_dark } = e.data;
 					return (
 				<a 

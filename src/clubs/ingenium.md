@@ -4,7 +4,7 @@ description: The Mechanical Department Forum
 accent_color_light: oklch(78% 0.18 85)
 accent_color_dark: oklch(78% 0.18 85)
 links:
-  Instagram: https://www.instagram.com/ingenium_mechanical?igsh=MWVxZ3N0Zzh4dHBxeQ==
+  Instagram: https://www.instagram.com/ingenium_mechanical
 classification:
   organization:
   - Club
