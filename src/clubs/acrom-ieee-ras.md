@@ -8,8 +8,6 @@ links:
   Instagram: https://www.instagram.com/ieee_acrom_ras/
   Whatsapp: https://chat.whatsapp.com/IobjgFAGccpDuVRCMEKFOZ
   LinkedIn: https://www.linkedin.com/company/ieee-acrom-ras
-  Github: 
-  X: 
 classification:
   organization:
   - Club
