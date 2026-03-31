@@ -33,29 +33,31 @@ const categoryCounts = Object.fromEntries(
 		<title>clubs.amrita.town</title>
 	</head>
 	<body>
-		<div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: left; margin-bottom: 0rem;" >
+		<div class="club-header" id="club-header">
+			<div style="display: flex; flex-direction: row; gap: 1rem; align-items: center; justify-content: left; margin-bottom: 0rem;" >
 			<Image src={favicon} alt="clubs logo" format="png" style="height: 67px; width: 67px; image-rendering: pixelated; margin-left: -0.5rem" />
 			<h1>clubs</h1>
-		</div>
-		<p>brought to you by the folks at <a href="https://amrita.town">amrita.town</a>. This is an unofficial students maintained registry of clubs, teams, and communities at Amrita Vishwa Vidyapeetham, Bengaluru</p>
-		
-		<div style="margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 3rem; width: 100%">
-			<div>
-				<p style="margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Type</small></p>
-				<div class="filter-group" role="group" aria-label="Filter by organization type">
-					<button class="filter-btn active" data-filter-type="organization" data-value="all">All</button>
-					<button class="filter-btn" data-filter-type="organization" data-value="club">Clubs</button>
-					<button class="filter-btn" data-filter-type="organization" data-value="team">Teams</button>
-				</div>
 			</div>
-			<div>
-				<p style="margin-bottom: 0.5rem; color: var(--secondary-light"><small>Category</small></p>
-				<div class="filter-group" role="group" aria-label="Filter by category">
-					<button class="filter-btn active" data-filter-type="category" data-value="all">All</button>
-					<button class="filter-btn" data-filter-type="category" data-value="stem">STEM</button>
-					<button class="filter-btn" data-filter-type="category" data-value="cultural">Cultural</button>
-					<button class="filter-btn" data-filter-type="category" data-value="humanities">Humanities</button>
-					<button class="filter-btn" data-filter-type="category" data-value="ieee">IEEE</button>
+			<p>brought to you by the folks at <a href="https://amrita.town">amrita.town</a>. This is an unofficial students maintained registry of clubs, teams, and communities at Amrita Vishwa Vidyapeetham, Bengaluru</p>
+			
+			<div style="margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 3rem; width: 100%">
+				<div>
+					<p style="margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Type</small></p>
+					<div class="filter-group" role="group" aria-label="Filter by organization type">
+						<button class="filter-btn active" data-filter-type="organization" data-value="all">All</button>
+						<button class="filter-btn" data-filter-type="organization" data-value="club">Clubs</button>
+						<button class="filter-btn" data-filter-type="organization" data-value="team">Teams</button>
+					</div>
+				</div>
+				<div>
+					<p style="margin-bottom: 0.5rem; color: var(--secondary-light"><small>Category</small></p>
+					<div class="filter-group" role="group" aria-label="Filter by category">
+						<button class="filter-btn active" data-filter-type="category" data-value="all">All</button>
+						<button class="filter-btn" data-filter-type="category" data-value="stem">STEM</button>
+						<button class="filter-btn" data-filter-type="category" data-value="cultural">Cultural</button>
+						<button class="filter-btn" data-filter-type="category" data-value="humanities">Humanities</button>
+						<button class="filter-btn" data-filter-type="category" data-value="ieee">IEEE</button>
+					</div>
 				</div>
 			</div>
 		</div>

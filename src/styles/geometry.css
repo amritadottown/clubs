@@ -1,6 +1,8 @@
 .clubs-grid {
 	--x-padding: 1rem;
 	display: flex;
+	align-items: stretch;
+	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1rem;
 	/* margin-top: 2rem; why? */
@@ -12,6 +14,7 @@
 	width: 320px;
     height: 90px;
 	/* padding: .75rem 1rem; */
+	background-color: var(--tertiary);
 	padding: .75rem var(--x-padding);
 	border-radius: .5rem;
 	color: var(--text);
