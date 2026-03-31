@@ -1,17 +1,25 @@
 .clubs-grid {
 	--x-padding: 1rem;
-	display: flex;
-	align-items: stretch;
+	--card-width: 320px;
+	--grid-gap: 1rem;
+	--max-columns: 3;
+	--grid-max-width: calc(var(--card-width) * var(--max-columns) + var(--grid-gap) * (var(--max-columns) - 1));
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-width)), var(--card-width)));
 	justify-content: center;
-	flex-wrap: wrap;
-	gap: 1rem;
-	/* margin-top: 2rem; why? */
-	justify-content: safe space-between;
-	margin: 0 calc(var(--x-padding) * -1);
+	gap: var(--grid-gap);
+	width: min(100%, var(--grid-max-width));
+	margin-inline: auto;
+}
+
+.club-header {
+	width: min(100%, calc(320px * 3 + 1rem * 2));
+	margin-inline: auto;
 }
 
 .club-container {
-	width: 320px;
+	width: 100%;
+	max-width: var(--card-width);
     height: 90px;
 	/* padding: .75rem 1rem; */
 	background-color: var(--tertiary);
