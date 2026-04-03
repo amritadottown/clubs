@@ -1,8 +1,8 @@
 ---
 name: CodeChef
 description: The most interactive competitive programming club
-accent_color_light: oklch(26.37% 0.0682 48)
-accent_color_dark: oklch(88% 0.06 83)
+theme_color_light: oklch(26.37% 0.0682 48)
+theme_color_dark: oklch(88% 0.06 83)
 links:
   Instagram: https://instagram.com/codechef_aseb
   Whatsapp: https://chat.whatsapp.com/JVvYdQkdFyp6oFvphgJfil

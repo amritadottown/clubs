@@ -1,8 +1,8 @@
 ---
 name: Prakriti
 description: The Nature Club
-accent_color_light: oklch(82% 0.15 145)
-accent_color_dark: oklch(82% 0.15 145)
+theme_color_light: oklch(82% 0.15 145)
+theme_color_dark: oklch(82% 0.15 145)
 links:
   Instagram: https://www.instagram.com/prakritiofficial_aseb
 classification:

@@ -1,8 +1,8 @@
 ---
 name: MISC
 description: the frontier technologies club
-accent_color_light: oklch(1% .16 240)
-accent_color_dark: oklch(32% .1 260)
+theme_color_light: oklch(1% .16 240)
+theme_color_dark: oklch(32% .1 260)
 links:
   Website: https://ignitestudents.club
   Instagram: https://www.instagram.com/ignitestudentsclub

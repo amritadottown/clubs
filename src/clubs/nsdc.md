@@ -1,6 +1,8 @@
 ---
 name: NSDC
 description: National Students Data Corp
+theme_color_light: "#367bbf"
+theme_color_dark: "#367bbf"
 links: {}
 classification:
   organization:

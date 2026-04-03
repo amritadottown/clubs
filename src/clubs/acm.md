@@ -1,8 +1,8 @@
 ---
 name: ACM
 description: The computing and innovation community
-accent_color_light: oklch(71.73% .2333 220)
-accent_color_dark: oklch(71.73% .2333 220)
+theme_color_light: oklch(71.73% .2333 220)
+theme_color_dark: oklch(71.73% .2333 220)
 links:
   Website: https://acm-aseb.github.io/ACM-Website/
   Instagram: https://www.instagram.com/acm_aseb_official

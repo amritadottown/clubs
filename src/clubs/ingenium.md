@@ -1,8 +1,8 @@
 ---
 name: Ingenium
 description: The Mechanical Department Forum
-accent_color_light: oklch(78% 0.18 85)
-accent_color_dark: oklch(78% 0.18 85)
+theme_color_light: oklch(0.78 0.18 85)
+theme_color_dark: oklch(0.78 0.18 85)
 links:
   Instagram: https://www.instagram.com/ingenium_mechanical
 classification:

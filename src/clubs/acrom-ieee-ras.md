@@ -1,8 +1,8 @@
 ---
 name: ACROM IEEE RAS
 description: The Robotics and Mechatronics club
-accent_color_light: oklch(51.07% 0.2407 25)
-accent_color_dark: oklch(81.18% 0.145 226.16)
+theme_color_light: oklch(51.07% 0.2407 25)
+theme_color_dark: oklch(81.18% 0.145 226.16)
 links:
   Website: https://edu.ieee.org/in-amritaras/
   Instagram: https://www.instagram.com/ieee_acrom_ras/
