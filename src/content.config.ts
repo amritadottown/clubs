@@ -46,7 +46,20 @@ const clubsSchema = z.object({
 
         Telegram: z
             .url()
-            .optional()
+            .optional(),
+
+        Facebook: z
+            .string()
+            .regex(
+                /^https:\/\/(www\.)?facebook\.com\/(?:[A-Za-z0-9.]+|people\/[A-Za-z0-9.-]+\/\d+)\/?$/,
+                "Invalid Facebook link"
+            )
+            .optional(),
+
+        YouTube: z
+            .string()
+            .regex(/^https:\/\/(www\.)?youtube\.com\/@?[A-Za-z0-9_.]+\/?$/, "Invalid YouTube link")
+            .optional(),
     }),
     classification: z
         .object({

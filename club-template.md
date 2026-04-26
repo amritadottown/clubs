@@ -13,6 +13,7 @@ links:
     Website: https://example.com
     Instagram: https://instagram.com/example
     YouTube: https://youtube.com/@example
+    Facebook: https://facebook.com/example
     X: https://x.com/example
     WhatsApp: https://chat.whatsapp.com/exampleInviteCode
     LinkedIn: https://linkedin.com/company/example

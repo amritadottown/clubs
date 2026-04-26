@@ -23,6 +23,12 @@ function linkDisplay(label: string, url: string) {
 		X: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
 		LinkedIn: (url) => `${new URL(url).pathname.split('/').filter(Boolean)[1]}`,
 		GitHub: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
+		Facebook: (url) => {
+			const parts = new URL(url).pathname.split('/').filter(Boolean);
+			const handle = parts[0] === 'people' ? parts[1] : parts[0];
+			return `@${handle ?? 'facebook'}`;
+		},
+		YouTube: (url) => `${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
 		WhatsApp: () => 'Join',
 		Discord: () => 'Join',
 		Telegram: () => 'Join',

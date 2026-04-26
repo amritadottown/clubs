@@ -2,11 +2,13 @@
 name: MISC
 description: the frontier technologies club
 theme_color_light: oklch(1% .16 240)
-theme_color_dark: oklch(32% .1 260)
+theme_color_dark: "#0f6CBD"
 links:
   Website: https://ignitestudents.club
   Instagram: https://www.instagram.com/ignitestudentsclub
   LinkedIn: https://www.linkedin.com/company/microsoft-ignite-students-club-aseb/
+  Facebook: https://www.facebook.com/people/Ignite-Students-Club/61556389845852/
+  YouTube: https://www.youtube.com/@IgniteStudentsClub
   Github: https://github.com/MISC-ASEB
 classification:
   organization:

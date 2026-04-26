@@ -3,6 +3,7 @@ name: Team Odyssey
 description: Rover Student Team
 theme_color_light: oklch(0.6254 0.172 261.8)
 theme_color_dark: oklch(0.6254 0.172 261.8)
+location: Robotics Lab, weekdays from 3:40pm onwards
 links:
   Website: https://teamodyssey.space
   Instagram: https://www.instagram.com/teamodysseyhq
