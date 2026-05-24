@@ -67,10 +67,13 @@ const categoryCounts = Object.fromEntries(
 				(() => {
 					const icon = getIcon(e.id);
 					const {theme_color_light, theme_color_dark } = e.data;
+					const isDisabled = (e.body || '').trim().split(/\s+/).length < 20 || (e.body || '').length < 150;
 					return (
 				<a 
-					href={`/${e.id}`} 
+					href={isDisabled ? undefined : `/${e.id}`} 
 					class="club-container"
+					style={isDisabled ? 'opacity: 0.6; filter: grayscale(100%); cursor: not-allowed;' : ''}
+					title={isDisabled ? "Please contact us to add your club's info" : ""}
 					data-org-type={e.data.classification.organization.map((v) => v.toLowerCase()).join(',')}
 					data-category={e.data.classification.category.map((v) => v.toLowerCase()).join(',')}
 				>
@@ -80,7 +83,7 @@ const categoryCounts = Object.fromEntries(
 								{e.data.name}
 							</strong>
 						</p>
-						<small>{e.data.description}</small>
+						<small>{isDisabled ? "Please contact us to add your club's info!" : e.data.description}</small>
 					</div>
 					<Image
 					src={icon}
