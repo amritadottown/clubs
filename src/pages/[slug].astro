@@ -1,12 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { getIcon, favicon } from '@/lib/icons';
-import { getCollection, render } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
 	const clubs = await getCollection('clubs');
-	return clubs.map((entry) => ({
+	return clubs.map((entry: CollectionEntry<'clubs'>) => ({
 		params: { slug: entry.id },
 		props: { entry },
 	}));
@@ -72,8 +72,6 @@ const icon = getIcon(entry.id)
 					</div>	
 				)}
 			</header>
-
-			</div>
 			<hr style="margin-bottom: 2rem;"/>
 			<div class="content">
 				<Content />
