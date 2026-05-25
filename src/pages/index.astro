@@ -43,7 +43,7 @@ const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(
 			</div>
 			<p>brought to you by the folks at <a href="https://amrita.town">amrita.town</a>. This is an unofficial students maintained registry of clubs, teams, and communities at Amrita Vishwa Vidyapeetham, Bengaluru</p>
 			
-			<div style="margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 3rem; width: 100%">
+			<div class="desktop-filters" style="margin-bottom: 1.5rem; flex-wrap: wrap; gap: 3rem; width: 100%">
 				<div>
 					<p style="margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Type</small></p>
 					<div class="filter-group" role="group" aria-label="Filter by organization type">
@@ -53,7 +53,7 @@ const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(
 					</div>
 				</div>
 				<div>
-					<p style="margin-bottom: 0.5rem; color: var(--secondary-light"><small>Category</small></p>
+					<p style="margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Category</small></p>
 					<div class="filter-group" role="group" aria-label="Filter by category">
 						<button class="filter-btn active" data-filter-type="category" data-value="all">All</button>
 						<button class="filter-btn" data-filter-type="category" data-value="stem">STEM</button>
@@ -61,6 +61,27 @@ const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(
 						<button class="filter-btn" data-filter-type="category" data-value="humanities">Humanities</button>
 						<button class="filter-btn" data-filter-type="category" data-value="ieee">IEEE</button>
 					</div>
+				</div>
+			</div>
+
+			<div class="mobile-filters" style="margin-bottom: 1.5rem; flex-wrap: wrap; gap: 3rem; width: 100%">
+				<div>
+					<label for="org-filter" style="display: block; margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Type</small></label>
+					<select id="org-filter" class="filter-select" aria-label="Filter by organization type">
+						<option value="all">All</option>
+						<option value="club">Clubs</option>
+						<option value="team">Teams</option>
+					</select>
+				</div>
+				<div>
+					<label for="category-filter" style="display: block; margin-bottom: 0.5rem; color: var(--secondary-light)"><small>Category</small></label>
+					<select id="category-filter" class="filter-select" aria-label="Filter by category">
+						<option value="all">All</option>
+						<option value="stem">STEM</option>
+						<option value="cultural">Cultural</option>
+						<option value="humanities">Humanities</option>
+						<option value="ieee">IEEE</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -147,13 +168,15 @@ const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(
 		</footer>
 		
 		<script>
+			const orgFilter = document.getElementById('org-filter') as HTMLSelectElement;
+			const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
 			const filterButtons = document.querySelectorAll('.filter-btn');
 			const clubContainers = document.querySelectorAll<HTMLElement>('.club-container');
 			
 			let selectedOrg = 'all';
 			let selectedCategory = 'all';
-			
-			function filterClubs() {
+
+			function applyFilters() {
 				clubContainers.forEach(container => {
 					const orgTypes = (container.getAttribute('data-org-type') || '').split(',');
 					const categories = (container.getAttribute('data-category') || '').split(',');
@@ -168,7 +191,39 @@ const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(
 					}
 				});
 			}
+
+			function syncUI() {
+				// Update dropdowns
+				if (orgFilter) orgFilter.value = selectedOrg;
+				if (categoryFilter) categoryFilter.value = selectedCategory;
+
+				// Update buttons
+				filterButtons.forEach(btn => {
+					const filterType = btn.getAttribute('data-filter-type');
+					const value = btn.getAttribute('data-value');
+					if (filterType === 'organization') {
+						if (value === selectedOrg) btn.classList.add('active');
+						else btn.classList.remove('active');
+					} else if (filterType === 'category') {
+						if (value === selectedCategory) btn.classList.add('active');
+						else btn.classList.remove('active');
+					}
+				});
+
+				applyFilters();
+			}
 			
+			// Event listeners for dropdowns
+			orgFilter?.addEventListener('change', (e) => {
+				selectedOrg = (e.target as HTMLSelectElement).value;
+				syncUI();
+			});
+			categoryFilter?.addEventListener('change', (e) => {
+				selectedCategory = (e.target as HTMLSelectElement).value;
+				syncUI();
+			});
+
+			// Event listeners for buttons
 			filterButtons.forEach(button => {
 				button.addEventListener('click', () => {
 					const filterType = button.getAttribute('data-filter-type');
@@ -176,20 +231,13 @@ const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(
 					
 					if (!filterType || !value) return;
 					
-					// Update active state for buttons in the same group
-					document.querySelectorAll(`[data-filter-type="${filterType}"]`).forEach(btn => {
-						btn.classList.remove('active');
-					});
-					button.classList.add('active');
-					
-					// Update selected filter
 					if (filterType === 'organization') {
 						selectedOrg = value;
 					} else if (filterType === 'category') {
 						selectedCategory = value;
 					}
 					
-					filterClubs();
+					syncUI();
 				});
 			});
 		</script>
