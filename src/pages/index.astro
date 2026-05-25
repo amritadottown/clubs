@@ -4,6 +4,7 @@ import '@/styles/geometry.css'
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { getIcon, favicon } from '@/lib/icons'
+import type { CollectionEntry } from 'astro:content';
 
 const clubs = await getCollection("clubs");
 
@@ -22,6 +23,8 @@ const categoryCounts = Object.fromEntries(
 		clubs.filter((e) => e.data.classification.category.includes(category)).length,
 	])
 );
+
+const isDisabled = (e: CollectionEntry<"clubs">) => (e.body || '').trim().split(/\s+/).length < 20 || (e.body || '').length < 150;
 ---
 
 <html lang="en">
@@ -63,39 +66,62 @@ const categoryCounts = Object.fromEntries(
 		</div>
 		
 		<div class="clubs-grid" id="clubs-grid">
-			{clubsSorted.map(e => (
-				(() => {
+			{clubsSorted.filter(e => !isDisabled(e)).map(e => {
+				const icon = getIcon(e.id);
+				const {theme_color_light, theme_color_dark } = e.data;
+				return (
+					<a 
+						href={`/${e.id}`} 
+						class="club-container"
+						data-org-type={e.data.classification.organization.map((v) => v.toLowerCase()).join(',')}
+						data-category={e.data.classification.category.map((v) => v.toLowerCase()).join(',')}
+					>
+						<div class="club-info">
+							<p>
+								<strong style={`--accent-light: ${theme_color_light || 'var(--text)'}; --accent-dark: ${theme_color_dark || theme_color_light || 'var(--text)'}; color: light-dark(var(--accent-light), var(--accent-dark));`}>
+									{e.data.name}
+								</strong>
+							</p>
+							<small>{e.data.description}</small>
+						</div>
+						<Image
+						src={icon}
+						class="club-favicon"
+						alt={e.data.name + " icon"}
+						format={icon.format == "svg" ? "svg" : "png"}
+						style={"height: 67px; width: 67px;" + (icon === favicon ? "image-rendering: pixelated;" : "")}
+					/>
+					</a>
+			)})}
+			{clubsSorted.filter(isDisabled).map(e => {
 					const icon = getIcon(e.id);
 					const {theme_color_light, theme_color_dark } = e.data;
-					const isDisabled = (e.body || '').trim().split(/\s+/).length < 20 || (e.body || '').length < 150;
 					return (
-				<a 
-					href={isDisabled ? undefined : `/${e.id}`} 
-					class="club-container"
-					style={isDisabled ? 'opacity: 0.6; filter: grayscale(100%); cursor: not-allowed;' : ''}
-					title={isDisabled ? "Please contact us to add your club's info" : ""}
-					data-org-type={e.data.classification.organization.map((v) => v.toLowerCase()).join(',')}
-					data-category={e.data.classification.category.map((v) => v.toLowerCase()).join(',')}
-				>
-					<div class="club-info">
-						<p>
-							<strong style={`--accent-light: ${theme_color_light || 'var(--text)'}; --accent-dark: ${theme_color_dark || theme_color_light || 'var(--text)'}; color: light-dark(var(--accent-light), var(--accent-dark));`}>
-								{e.data.name}
-							</strong>
-						</p>
-						<small>{isDisabled ? "Please contact us to add your club's info!" : e.data.description}</small>
-					</div>
-					<Image
-					src={icon}
-					class="club-favicon"
-					alt={e.data.name + " icon"}
-					format="png"
-					style={"height: 67px; width: 67px;" + (icon === favicon ? "image-rendering: pixelated;" : "")}
-				/>
-				</a>
-					);
-				})()
-			))
+						<a 
+							href={undefined} 
+							class="club-container"
+							style="opacity: 0.6; filter: grayscale(100%); cursor: not-allowed;"
+							title="Please contact us to add your club's info"
+							data-org-type={e.data.classification.organization.map((v) => v.toLowerCase()).join(',')}
+							data-category={e.data.classification.category.map((v) => v.toLowerCase()).join(',')}
+						>
+							<div class="club-info">
+								<p>
+									<strong style={`--accent-light: ${theme_color_light || 'var(--text)'}; --accent-dark: ${theme_color_dark || theme_color_light || 'var(--text)'}; color: light-dark(var(--accent-light), var(--accent-dark));`}>
+										{e.data.name}
+									</strong>
+								</p>
+								<small>Please contact us to add your club's info!</small>
+							</div>
+							<Image
+							src={icon}
+							class="club-favicon"
+							alt={e.data.name + " icon"}
+							format={icon.format == "svg" ? "svg" : "png"}
+							style={"height: 67px; width: 67px;" + (icon === favicon ? "image-rendering: pixelated;" : "")}
+						/>
+						</a>
+			)})}
 			}
 		</div>
 

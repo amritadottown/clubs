@@ -49,7 +49,7 @@ const icon = getIcon(entry.id)
 						src={icon}
 						class="club-favicon"
 						alt={name + " icon"}
-						format="png"
+						format={icon.format == "svg" ? "svg" : "png"}
 						style={"height: 67px; width: 67px;" + (icon === favicon ? "image-rendering: pixelated;" : "")}
 					/>
 					<h1 style="margin: 0">{name}</h1>
