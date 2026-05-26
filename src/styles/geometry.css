@@ -3,13 +3,11 @@
 	--card-width: 320px;
 	--grid-gap: 1rem;
 	--max-columns: 3;
-	--grid-max-width: calc(var(--card-width) * var(--max-columns) + var(--grid-gap) * (var(--max-columns) - 1));
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--card-width)), 1fr));
 	justify-content: center;
 	gap: var(--grid-gap);
-	width: min(100%, var(--grid-max-width));
-	margin-inline: auto;
+	width: 100%;
 }
 
 .club-header {
@@ -19,7 +17,6 @@
 
 .club-container {
 	width: 100%;
-	max-width: 100%;
     height: 90px;
 	/* padding: .75rem 1rem; */
 	background-color: var(--tertiary);
