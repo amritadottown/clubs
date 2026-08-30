@@ -16,6 +16,11 @@ const clubsSchema = z.object({
             .url()
             .optional(),
 
+        Email: z
+            .string()
+            .email()
+            .optional(),
+
         Instagram: z
             .string()
             .regex(/^https:\/\/(www\.)?instagram\.com\/[A-Za-z0-9_.]+\/?$/, "Invalid Instagram link")
@@ -58,7 +63,7 @@ const clubsSchema = z.object({
 
         YouTube: z
             .string()
-            .regex(/^https:\/\/(www\.)?youtube\.com\/@?[A-Za-z0-9_.]+\/?$/, "Invalid YouTube link")
+            .regex(/^https:\/\/(www\.)?youtube\.com\/@?[A-Za-z0-9_.-]+\/?$/, "Invalid YouTube link")
             .optional(),
     }),
     classification: z

@@ -1,34 +1,40 @@
 ---
-name: ACROM IEEE RAS
-description: The Robotics and Mechatronics club
-theme_color_light: oklch(51.07% 0.2407 25)
-theme_color_dark: oklch(81.18% 0.145 226.16)
+name: ACROM & IEEE-RAS
+description: Pioneering robotics, automation, and intelligent systems through hands-on innovation.
+theme_color_light: '#850a29'
+theme_color_dark: '#850a29'
 links:
   Website: https://edu.ieee.org/in-amritaras/
+  Email: acrom@blr.amrita.edu
   Instagram: https://www.instagram.com/ieee_acrom_ras/
-  Whatsapp: https://chat.whatsapp.com/IobjgFAGccpDuVRCMEKFOZ
+  WhatsApp: https://chat.whatsapp.com/CMLWYe6eokFGAY19TTamS8
   LinkedIn: https://www.linkedin.com/company/ieee-acrom-ras
 classification:
   organization:
   - Club
   category:
   - STEM
+  - IEEE
 ---
 
-We're ACROM, the robotics and mechatronics club of Amrita Vishwa Vidyapeetham, Bengaluru.
+### About ACROM & IEEE-RAS
 
-We don’t just talk robotics — we build it, break it, fix it, and make it better.
+ACROM (Amrita Club for Robotics and Mechatronics) along with the IEEE Robotics & Automation Society (RAS) Student Branch Chapter is the central hub for robotics enthusiasts at Amrita Bengaluru.
 
-From bots that move with precision to systems that think on their own, we work at the intersection of hardware, software, and pure engineering chaos. Motors spin, code runs, circuits spark — and somehow, it all comes together.
+We bridge theoretical engineering with practical execution, providing students a platform to design, build, and deploy intelligent hardware and software systems.
 
-While others are busy learning theory, we’re out here testing it in the real world. Competitions, prototypes, late-night debugging sessions — this is where things actually happen.
+#### What We Do:
 
-We’ve built robots that compete, systems that perform, and a culture that pushes you to level up whether you’re just starting out or already deep into the game.
+- **Hands-on Workshops:** Practical bootcamps covering embedded systems, autonomous robotics and computer vision.
+- **Competitions & Hackathons:** Hosting flagship robotics challenges, bot-wars, and technical hackathons on campus, while fostering competitive engineering.
+- **Collaborative Projects:** Interdisciplinary research and project development spanning ECE, CSE, and mechanical engineering.
+- **Tech Talks & Seminars:** Sessions hosted by industry leaders and IEEE researchers exploring recent advancements in robotics and automation.
 
-If you’re curious, we’ll teach you.  
-If you’re driven, we’ll push you.  
-If you’re ready to build something Tony Stark will be proud of… you’ll fit right in.
+---
 
+*If you're curious, we'll teach you.*  
+*If you're driven, we'll push you.*  
+*If you're ready to build something Tony Stark would be proud of… you'll fit right in.*
 
-Till then,
-Explore. ACROM.
+**Till then,**  
+**Explore. ACROM.**

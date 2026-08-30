@@ -17,6 +17,15 @@ pnpm-debug.log*
 .env
 .env.production
 
+# mail fetcher output + token cache
+emails/
+data/
+.login.txt
+.dev.log
+
+# user's exported club emails — do not commit
+emails-do-not-commit/
+
 # macOS-specific files
 .DS_Store
 

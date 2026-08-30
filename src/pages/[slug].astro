@@ -20,6 +20,7 @@ function linkDisplay(label: string, url: string) {
 	const displayMap: Record<string, (_: string) => string> = {
 		Website: (url) => new URL(url).hostname,
 		Instagram: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
+		Email: (url) => url,
 		X: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
 		LinkedIn: (url) => `${new URL(url).pathname.split('/').filter(Boolean)[1]}`,
 		GitHub: (url) => `@${new URL(url).pathname.split('/').filter(Boolean)[0]}`,
@@ -61,7 +62,7 @@ const icon = getIcon(entry.id)
 						<div>
 							<p class="label"><small>{label}</small></p>
 							{/* display: block is needed otherwise there's a weird layout shift after first load */}
-							<a style="display: block" href={url} target="_blank">{linkDisplay(label, url)}</a>
+							<a style="display: block" href={label === 'Email' ? `mailto:${url}` : url} target={label === 'Email' ? undefined : "_blank"}>{linkDisplay(label, url)}</a>
 						</div>
 					))}
 				</div>}
